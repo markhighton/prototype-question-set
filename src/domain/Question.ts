@@ -14,8 +14,6 @@ abstract class QuestionEntity {
         this.SubQuestions.push(question);
     }
 
-    public abstract IsSuitableFor(client: Client): boolean;
-
     public static Create(text: string, type: string, options: Array<string>): QuestionEntity {
         if(type === "FreeText")
             return new FreeTextQuestion(text, type, options);
@@ -27,15 +25,8 @@ abstract class QuestionEntity {
 }
 
 class FreeTextQuestion extends QuestionEntity {
-    public IsSuitableFor(client: Client): boolean {
-        // TODO: use rule engine / spec for client here 
-        return true;
-    }
 }
 
 class MultiSelectQuestion extends QuestionEntity {
-    public IsSuitableFor(client: Client): boolean {
-        return true;
-    }
 }
 
