@@ -3,8 +3,8 @@ class QuestionCollectionBuilder {
     private _root: QuestionEntity;
     private _current: QuestionEntity;
 
-    constructor() {
-        this._root = QuestionEntity.Create("", "", []);
+    constructor(rootName: string) {
+        this._root = QuestionEntity.Create(rootName, "root", []);
         this._current = this._root;
     }
 

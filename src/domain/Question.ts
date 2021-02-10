@@ -14,19 +14,13 @@ abstract class QuestionEntity {
         this.SubQuestions.push(question);
     }
 
+    // Factory method to infer the question type if we pull from a data source - this might not be
+    // needed but if we are hard baking.
     public static Create(text: string, type: string, options: Array<string>): QuestionEntity {
         if(type === "FreeText")
             return new FreeTextQuestion(text, type, options);
         if(type === "MultiSelect")
             return new MultiSelectQuestion(text, type, options);
-
         return new FreeTextQuestion(text, type, options)
-    }
+    }  
 }
-
-class FreeTextQuestion extends QuestionEntity {
-}
-
-class MultiSelectQuestion extends QuestionEntity {
-}
-

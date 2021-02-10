@@ -1,0 +1,2 @@
+class MultiSelectQuestion extends QuestionEntity {
+}

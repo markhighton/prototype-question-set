@@ -1,0 +1,4 @@
+class FreeTextQuestion extends QuestionEntity {
+}
+
+
