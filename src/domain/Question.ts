@@ -1,4 +1,7 @@
-abstract class QuestionEntity {
+import FreeTextQuestion from "./questions/FreeTextQuestion";
+import MultiSelectQuestion from "./questions/MultiSelectQuestion";
+
+export default abstract class QuestionEntity {
     public Text: string;
     public Type: string;
     public Options: Array<string>
@@ -8,6 +11,7 @@ abstract class QuestionEntity {
         this.Text = text;
         this.Type = type;
         this.Options = options;
+        this.SubQuestions = new Array<QuestionEntity>();
     }
 
     public AddSubQuestion(question: QuestionEntity) {

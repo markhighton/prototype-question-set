@@ -1,24 +1,24 @@
-interface ISpecifcation<T> {
+export interface ISpecifcation<T> {
     
-    isSatisfiedBy(entity: T);
-    and(other: ISpecifcation<T>) : ISpecifcation<T>;
-    not(): ISpecifcation<T>;
+    isSatisfiedBy(entity: T): boolean;
+    and(other: ISpecifcation<T>) : AndSpecification<T>;
+    not(): NotSpecification<T>;
 
 }
 
-abstract class AbstractSpecification<T> implements ISpecifcation<T> {
+export abstract class AbstractSpecification<T> implements ISpecifcation<T> {
     public abstract isSatisfiedBy(entity: T): boolean;
   
-    public and(other) {
+    public and(other: ISpecifcation<T>) : AndSpecification<T> {
       return new AndSpecification(this, other);
     }
   
-    public not() {
+    public not(): NotSpecification<T> {
       return new NotSpecification(this);
     }
   }
   
-  class AndSpecification<T> extends AbstractSpecification<T> {
+ export class AndSpecification<T> extends AbstractSpecification<T> {
     private one: ISpecifcation<T>;
     private other: ISpecifcation<T>;
   
@@ -33,7 +33,7 @@ abstract class AbstractSpecification<T> implements ISpecifcation<T> {
     }
   }
   
-  class NotSpecification<T> extends AbstractSpecification<T> {
+ export class NotSpecification<T> extends AbstractSpecification<T> {
     private wrapped: ISpecifcation<T>;
   
     public constructor(wrapped: ISpecifcation<T>) {

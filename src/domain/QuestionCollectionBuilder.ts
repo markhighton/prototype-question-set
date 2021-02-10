@@ -1,4 +1,6 @@
-class QuestionCollectionBuilder {
+import QuestionEntity from "./Question";
+
+export default class QuestionCollectionBuilder {
 
     private _root: QuestionEntity;
     private _current: QuestionEntity;

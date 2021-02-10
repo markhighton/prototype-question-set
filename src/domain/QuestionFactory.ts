@@ -1,4 +1,9 @@
-class QuestionFactory {
+import QuestionEntity from "./Question";
+import FreeTextQuestion from "./questions/FreeTextQuestion";
+import MultiSelectQuestion from "./questions/MultiSelectQuestion";
+import QuestionCollectionBuilder from "../domain/QuestionCollectionBuilder";
+
+export default class QuestionFactory {
 
     public static CompanyName: QuestionEntity = new FreeTextQuestion("What is your company name?", "FreeText", [""]);
     public static EmployeeCount: QuestionEntity = new MultiSelectQuestion("No. of Employees is fewer than 250 FTE", "MultiSelect", ["0-50", "50-250", "500-10000"]);
