@@ -1,4 +1,4 @@
-class Question {
+export default class Question {
     text: string;
     type: string;
     options: Array<string>;
@@ -10,4 +10,3 @@ class Question {
         this.options = answerOptions;
     }
 }
-
