@@ -19,9 +19,15 @@ export default {
   name: 'App',
   components: {
     //HelloWorld,
-    QuestionDisplay
+    QuestionDisplay,
+  },
+  methods: {
+      getTriageQuestions() {
+        console.log(this.$store.state.triageQuestions);
+      }
   },
   data () {
+    const questions = this.getTriageQuestions();
     return {
       questions: [
         {

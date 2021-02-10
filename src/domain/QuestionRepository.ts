@@ -9,3 +9,4 @@ export default class QuestionRepository {
         return QuestionFactory.CreateTriageQuestions();
     }
 }
+

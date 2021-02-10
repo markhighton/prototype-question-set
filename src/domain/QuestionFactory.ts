@@ -25,5 +25,4 @@ export default class QuestionFactory {
             .AddQuestion("Turnover (less than €50m) OR Balance Sheet (less than €43m", "MultiSelect", ["Less than 10000", "Less than 1000000", "Less than 10000000"]);
         return questionCollectionBuilder.Build();;
     }
-
 }
