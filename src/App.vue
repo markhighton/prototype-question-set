@@ -1,57 +1,20 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    {{/*<HelloWorld msg="Welcome to Your Vue.js App"/>*/}}
-    <QuestionDisplay 
-    v-for="question in questions" 
-    :value="question" 
-    :index="question.id"
-    :key="question.id" />
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
   </div>
 </template>
 
-<script>
-//import HelloWorld from './components/HelloWorld.vue'
-import QuestionDisplay from './components/QuestionDisplay.vue'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import HelloWorld from './components/HelloWorld.vue';
 
-
-export default {
-  name: 'App',
+@Component({
   components: {
-    //HelloWorld,
-    QuestionDisplay,
+    HelloWorld,
   },
-  methods: {
-      getTriageQuestions() {
-        console.log(this.$store.state.triageQuestions);
-      }
-  },
-  data () {
-    const questions = this.getTriageQuestions();
-    return {
-      questions: [
-        {
-          id: 0,
-          questionText: "No. of Employees is fewer than 250 FTE",
-          questionOptions: ["True", "False"],
-          questionType: "Select"
-        },
-        {
-          id: 1,
-          questionText: "No. of Employees?",
-          questionOptions: 0,
-          questionType: "Number"
-        },
-        {
-          id: 2,
-          questionText: "Turnover (less than €50m) OR Balance Sheet (less than €43m)",
-          questionOptions: "",
-          questionType: "Freeform"
-        },
-      ]
-    }
-  }
-}
+})
+export default class App extends Vue {}
 </script>
 
 <style>

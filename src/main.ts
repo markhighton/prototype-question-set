@@ -1,20 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex';
 import App from './App.vue';
-//import QuestionRepository from '../src/domain/QuestionRepository';
+import { User } from './types/index';
+import QuestionRepository from '../src/domain/QuestionRepository';
 
 Vue.use(Vuex);
 
-const store = new Vuex.store({
+const store = new Vuex.Store({
   state : {
     triageQuestions: []
   },
   getters: {
     allTriageQuestions() {
-        // const repo = new QuestionRepository();
-        // return repo.getTriageQuestions();
-
-        return [];
+         const repo = new QuestionRepository();
+         return repo.getTriageQuestions();
     }
   }
 })

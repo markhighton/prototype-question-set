@@ -13,7 +13,7 @@ export default class QuestionFactory {
     // Option 1: Normal list of questions
     public static CreateTriageQuestions(): Array<QuestionEntity> {
         return [this.CompanyName, this.EmployeeCount, this.Sector, this.Turnover];
-    };
+    }
 
     // Option 2: Composite list of questions
     public static CreateHierarchyOfTriageQuestions(): QuestionEntity {
@@ -23,6 +23,6 @@ export default class QuestionFactory {
             .AddQuestion("No. of Employees is fewer than 250 FTE", "MultiSelect", ["0-50", "50-250", "500-10000"])
             .AddSubQuestion("Sector is eligible for ERDF support", "MultiSelect", ["ERDF", "Non-ERDF"])
             .AddQuestion("Turnover (less than €50m) OR Balance Sheet (less than €43m", "MultiSelect", ["Less than 10000", "Less than 1000000", "Less than 10000000"]);
-        return questionCollectionBuilder.Build();;
+        return questionCollectionBuilder.Build();
     }
 }
